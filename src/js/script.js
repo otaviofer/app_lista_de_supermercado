@@ -6,7 +6,7 @@ document.querySelector("input[type=submit]").addEventListener("click", () => {
 
   itens.push({
     nome: nomeProduto.value,
-    valor: precoProduto.value
+    valor: precoProduto.value,
   });
 
   /* 
@@ -20,31 +20,27 @@ document.querySelector("input[type=submit]").addEventListener("click", () => {
   let listaProdutos = document.querySelector(".lista-produtos");
   let soma = 0;
 
-  listaProdutos.innerHTML="";
+  listaProdutos.innerHTML = "";
   itens.map(function (val) {
-    soma+=parseFloat(val.valor);
+    soma += parseFloat(val.valor);
     listaProdutos.innerHTML += `
-        
       <div class="lista-produto-single">
-         <h3>`+val.nome+`</h3>
-         <h3 class="price-produto">`+val.valor+`</h3>
+         <h3>${val.nome}</h3>
+         <h3 class="price-produto"><span>R$ ${parseFloat(val.valor).toFixed(2)}</span></h3>
       </div>
-      <!--lista-produto-single-->
-        
-        `;
+    `;
   });
 
   soma = soma.toFixed(2);
-  nomeProduto.value="";
-  precoProduto.value="";
+  nomeProduto.value = "";
+  precoProduto.value = "";
 
-  let elementoSoma = document.querySelector('.soma-produto h1');
-  elementoSoma.innerHTML = `R$`+soma;
+  let elementoSoma = document.querySelector(".soma-produto h1");
+  elementoSoma.innerHTML = `R$` + soma;
 });
 
-
-document.querySelector("button[name=limpar]").addEventListener('click', () => {
+document.querySelector("button[name=limpar]").addEventListener("click", () => {
   itens.length = 0; // Isso esvazia o array atual sem mudar a referência
   document.querySelector(".lista-produtos").innerHTML = "";
-  document.querySelector('.soma-produto h1').innerHTML = "R$0,00";
+  document.querySelector(".soma-produto h1").innerHTML = "R$0,00";
 });

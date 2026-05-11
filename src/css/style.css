@@ -1,11 +1,173 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  text-decoration: none;
+:root {
+    --primary-color: #2ecc71;
+    --secondary-color: #e74c3c;
+    --bg-color: #f5f6fa;
+    --card-bg: #ffffff;
+    --text-color: #2f3640;
+    --border-radius: 12px;
 }
 
-body,
-html {
-  height: 100%;
+
+/* .karla-<uniquifier> {
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Karla", sans-serif;
+}
+
+body {
+    background-image: linear-gradient(rgba(236, 236, 236, 0.7), rgba(211, 211, 211, 0.7)),url("../images/bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+header {
+    margin: 20px 0 30px 0;
+}
+
+header h2{
+    font-size: 2.2rem;
+}
+
+/* Formulário de Cadastro Responsivo */
+.lista-cadastro {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha no mobile */
+    gap: 15px;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Nome e Preço ocupam a esquerda (flex-grow) */
+input[name="nome_produto"], 
+input[name="price"] {
+    flex: 2; 
+    min-width: 200px;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid rgb(27, 27, 27);
+}
+
+/* Botão Cadastrar à direita */
+input[type="submit"] {
+    flex: 1;
+    min-width: 150px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+/* Lista de Produtos */
+.lista-produtos {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 30px;
+    flex-grow: 1; /* Empurra o rodapé para baixo */
+}
+
+.lista-produto-single {
+    background: var(--card-bg);
+    display: flex;
+    justify-content: space-between; /* Nome na esquerda, Preço na direita */
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 12px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.lista-produto-single h3 {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* Fonte maior para os valores */
+.price-produto {
+    font-size: 1.4rem; /* Valor em destaque */
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Total e Rodapé */
+.soma-produto {
+    width: 100%;
+    max-width: 800px;
+    text-align: right;
+    margin: 30px 0 10px 0;
+}
+
+.soma-produto h1 {
+    font-size: 2.5rem; /* Total bem grande */
+    color: #1e272e;
+    font-weight: 800;
+}
+
+button[name="limpar"] {
+    width: 100%;
+    max-width: 800px;
+    padding: 18px;
+    background-color: rgb(212, 10, 10);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: auto; /* Cola no final do container flex */
+}
+
+/* Media Query para Celulares pequenos */
+@media (max-width: 600px) {
+    .lista-cadastro {
+        flex-direction: column;
+        gap: 10px; /* Reduzi um pouco o espaço entre campos no mobile */
+    }
+    
+    input[name="nome_produto"], 
+    input[name="price"],
+    input[type="submit"] {
+        width: 100%;
+    }
+
+    input[type="submit"] {
+        height: 55px; /* Aumentei para 55px para facilitar o clique */
+        font-size: 1.2rem; /* Aumentei um pouco a fonte para acompanhar a altura */
+        margin-top: 5px; /* Um espacinho extra acima do botão */
+        padding: 15px;
+    }
+
+    .soma-produto h1 {
+        font-size: 2.5rem;
+    }
 }
