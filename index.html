@@ -18,9 +18,9 @@
         id=""
       />
       <input
-        type="text"
-        name="valor_produto"
-        placeholder="valor do produto"
+        type="number"
+        name="price"
+        step="0.01"
         id=""
       />
       <input type="submit" name="acao" value="Cadastrar" />
@@ -28,17 +28,15 @@
     <!--lista-cadastro-->
 
     <div class="lista-produtos">
-      <div class="lista-produto-single">
-        <h3>RedBull</h3>
-        <h3 class="price-produto">R$20,00</h3>
-      </div>
-      <!--lista-produto-single-->
+      
     </div>
     <!--lista-produtos-->
 
     <div class="soma-produto">
-        <h1>Total R$100,00</h1>
+        <h1>Total R$0,00</h1>
     </div><!--soma-produto-->
+
+    <button name="limpar">Limpar</button>
 
     <script src="./src/js/script.js"></script>
   </body>
